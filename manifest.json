@@ -1,8 +1,8 @@
 {
-  "name": "Nachbar Finder",
-  "short_name": "Nachbar",
+  "name": "NM PKG Scan",
+  "short_name": "PKG Scan",
   "description": "Finden Sie Ihre Nachbarn schnell",
-  "start_url": "/index.html",
+  "start_url": "/nm-pkg-scan/index.html",
   "display": "standalone",
   "background_color": "#667eea",
   "theme_color": "#667eea",
