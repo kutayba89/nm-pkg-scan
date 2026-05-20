@@ -1,0 +1,111 @@
+:root{
+    /* Primary Brand Colors */
+    --primary-burgundy: #7d2e4c;
+    --primary-burgundy-dark: #5a1f37;
+    --accent-red: #e63946;
+    --accent-red-hover: #d62839;
+    --accent-green: #2a9d8f;
+    --accent-teal: #1a8578;
+    --purple-dark: #4a2c47;
+    --purple-medium: #6b4468;
+    --white: #ffffff;
+    --light-gray: #f5f5f5;
+    --medium-gray: #e0e0e0;
+    --dark-gray: #333333;
+    --text-dark: #2c2c2c;
+    --radius: 12px;
+
+    /* compatibility aliases used in the stylesheet */
+    --bg-1: var(--primary-burgundy-dark);
+    --bg-2: var(--primary-burgundy);
+    --accent: var(--accent-red);
+    --muted: var(--medium-gray);
+    --success: var(--accent-green);
+    --surface: rgba(15,11,12,0.55);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+    margin:0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+    background: linear-gradient(135deg,var(--bg-1),var(--bg-2));
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    color:#f8fafc;
+    padding: env(safe-area-inset-top) 12px env(safe-area-inset-bottom);
+    touch-action: pan-y;
+}
+
+.container{
+    max-width:820px;
+    margin: 18px auto;
+    background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.35));
+    border-radius: calc(var(--radius) + 8px);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.6);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.03);
+}
+
+.header{
+    background: linear-gradient(90deg,var(--primary-burgundy-dark), var(--primary-burgundy));
+    color: var(--white);
+    padding: 22px 18px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.brand {
+    width:52px;height:52px;border-radius:12px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:22px;
+}
+.header h1{font-size:20px;margin:0}
+.header p{margin:0;font-size:12px;opacity:0.95}
+
+.search-container{padding:16px;border-bottom:1px solid #f3f4f6}
+.search-box{position:relative}
+#searchInput{width:100%;padding:14px 52px 14px 16px;border:1px solid #e6e9ef;border-radius:10px;font-size:16px}
+#searchInput:focus{outline:none;box-shadow:0 6px 20px rgba(79,70,229,0.12);border-color:var(--accent)}
+.search-icon{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:18px}
+.clear-btn{position:absolute;right:52px;top:50%;transform:translateY(-50%);background:#ef4444;color:white;border:none;border-radius:50%;width:32px;height:32px;font-size:16px;display:none}
+.clear-btn.show{display:block}
+.result-count{margin-top:10px;color:var(--muted);font-size:13px;text-align:center}
+
+.floors-section{padding:14px;background:transparent;border-bottom:1px solid rgba(255,255,255,0.03)}
+.floors-title{font-weight:700;color:var(--accent);text-align:center;margin-bottom:12px}
+.floors-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;max-width:720px;margin:0 auto}
+.floor-btn{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);padding:10px;border-radius:10px;text-align:center;font-size:13px;color:var(--muted)}
+.floor-btn.active{background:var(--accent-red);color:var(--white);box-shadow:0 6px 18px rgba(214,40,57,0.18)}
+
+.results{padding:16px;min-height:180px}
+.result-card{background:linear-gradient(90deg,var(--primary-burgundy-dark),var(--primary-burgundy));color:var(--white);padding:16px;border-radius:12px;margin-bottom:12px;position:relative}
+.name{font-weight:700;font-size:17px;margin-bottom:8px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.info-box{background:rgba(255,255,255,0.03);padding:8px;border-radius:8px;text-align:center}
+.info-label{font-size:11px;opacity:0.9}
+.info-value{font-weight:700;font-size:20px}
+.edit-btn{position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.18);border:none;color:white;padding:8px 10px;border-radius:999px}
+
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:10000;align-items:center;justify-content:center}
+.modal.show{display:flex}
+.modal-content{padding:20px;background:var(--surface);border-radius:12px;width:90%;max-width:420px}
+.modal-header{font-size:18px}
+.form-group label{font-weight:600;margin-bottom:6px;display:block}
+.form-group input{width:100%;padding:12px;border-radius:8px;border:1px solid #e6e9ef}
+.modal-buttons{display:flex;gap:10px}
+.btn{flex:1;padding:12px;border-radius:8px;border:none;font-weight:600}
+.btn-save{background:var(--accent);color:white}
+.btn-cancel{background:#1f2937;color:var(--muted)}
+
+.notification{position:fixed;left:50%;transform:translateX(-50%);bottom:20px;background:var(--success);color:white;padding:12px 18px;border-radius:10px}
+.no-results{text-align:center;padding:48px 20px;color:#9ca3af}
+
+@media (max-width:900px){.floors-grid{grid-template-columns:repeat(5,1fr)}.container{margin:12px}}
+@media (max-width:520px){
+    .floors-grid{grid-template-columns:repeat(4,1fr)}
+    .info-grid{grid-template-columns:1fr}
+    .header h1{font-size:18px}
+}
+
+/* Improve tap targets for Android devices like Xiaomi Redmi */
+button, .floor-btn, #searchInput{touch-action: manipulation}
+button, .floor-btn{min-height:44px}
