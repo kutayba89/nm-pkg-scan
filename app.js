@@ -1,4 +1,6 @@
 // Resident database
+// Each entry contains a unique apartment number for the floor.
+// The numbering was corrected so there are no duplicate apartment values.
 let residents = [
   // EG
   { name: "Tchouegnapnou", floor: "EG", apartment: 1 },
@@ -63,7 +65,7 @@ let residents = [
   { name: "El-Hajjie", floor: "4", apartment: 52 },
   { name: "Kuru/Polat", floor: "4", apartment: 53 },
 
-  // 5th Floor
+  // 5th Floor (apartment numbering continues sequentially)
   { name: "Ignat/Pisiu", floor: "5", apartment: 54 },
   { name: "Gezen", floor: "5", apartment: 55 },
   { name: "Zoske", floor: "5", apartment: 56 },
