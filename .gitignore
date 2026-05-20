@@ -1,0 +1,14 @@
+# Node and web dependencies
+node_modules/
+.npm/
+
+# Editor and OS files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Cache
+.cache/
