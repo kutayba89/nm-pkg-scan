@@ -96,7 +96,30 @@ let residents = [
 
 const savedData = localStorage.getItem('residentsData');
 if (savedData) {
-    residents = JSON.parse(savedData);
+    try {
+        const parsed = JSON.parse(savedData);
+        const seen = new Set();
+        let hasDuplicate = false;
+
+        for (const item of parsed) {
+            const key = `${item.floor}:${item.apartment}`;
+            if (seen.has(key)) {
+                hasDuplicate = true;
+                break;
+            }
+            seen.add(key);
+        }
+
+        if (Array.isArray(parsed) && !hasDuplicate) {
+            residents = parsed;
+        } else {
+            localStorage.removeItem('residentsData');
+            console.warn('Cleared invalid resident data from localStorage.');
+        }
+    } catch (error) {
+        localStorage.removeItem('residentsData');
+        console.warn('Failed to parse residentsData from localStorage. Clearing saved data.', error);
+    }
 }
 
 const searchInput = document.getElementById('searchInput');
